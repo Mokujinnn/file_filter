@@ -49,8 +49,4 @@ public class Config {
     public List<String> getInputFiles() {
         return new ArrayList<>(inputFiles);
     }
-
-    public String[] getInputFilesArray() {
-        return inputFiles.toArray(new String[0]);
-    }
 }
