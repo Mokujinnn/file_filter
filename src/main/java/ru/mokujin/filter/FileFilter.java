@@ -126,15 +126,11 @@ public class FileFilter {
         PrintWriter writer;
         String filename = config.getOutputFilename(type);
         StandardOpenOption option = config.isAppendMode() ? StandardOpenOption.APPEND : StandardOpenOption.CREATE;
-
         Path path = Paths.get(filename);
 
-        if (Files.exists(path)) {
-            writer = new PrintWriter(Files.newBufferedWriter(path, StandardCharsets.UTF_8, option));
-        } else {
-            writer = new PrintWriter(
-                    Files.newBufferedWriter(path, StandardCharsets.UTF_8, StandardOpenOption.CREATE));
-        }
+        option = Files.exists(path) ? option : StandardOpenOption.CREATE;
+
+        writer = new PrintWriter(Files.newBufferedWriter(path, StandardCharsets.UTF_8, option));
 
         writers.put(type, writer);
         return writer;
