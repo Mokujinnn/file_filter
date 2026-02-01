@@ -13,12 +13,8 @@ public class Main {
 
             Config config = parseArgs(args);
 
-            System.out.println("Output path: " + config.getOutputPath());
-            System.out.println("Prefix: " + config.getPrefix());
-            System.out.println("Append mode: " + config.isAppendMode());
-            System.out.println("Short stats: " + config.isShortStats());
-            System.out.println("Full stats: " + config.isFullStats());
-            System.out.println("Input files: " + config.getInputFiles());
+            FileFilter fileFilter = new FileFilter(config);
+            fileFilter.process();
 
         } catch (IllegalArgumentException e) {
             System.err.println("Error: " + e.getMessage());

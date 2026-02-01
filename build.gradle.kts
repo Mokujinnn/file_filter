@@ -47,3 +47,15 @@ tasks.jar {
     })
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
+
+tasks.register<JavaExec>("debugRun") {
+    group = "application"
+    description = "Runs the application in debug mode"
+    
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass.set(application.mainClass.get())
+    
+    jvmArgs = listOf(
+        "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005"
+    )
+}

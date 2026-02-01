@@ -49,4 +49,8 @@ public class Config {
     public List<String> getInputFiles() {
         return new ArrayList<>(inputFiles);
     }
+
+    public String getOutputFilename(DataType type) {
+        return outputPath.resolve(prefix + type.name().toLowerCase() + "s.txt").toString();
+    }
 }
