@@ -30,24 +30,48 @@ public class Config {
         return outputPath;
     }
 
+    public void setOutputPath(Path outputPath) {
+        this.outputPath = outputPath;
+    }
+
     public String getPrefix() {
         return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 
     public boolean isAppendMode() {
         return appendMode;
     }
 
+    public void setAppendMode(boolean appendMode) {
+        this.appendMode = appendMode;
+    }
+
     public boolean isShortStats() {
         return shortStats;
+    }
+
+    public void setShortStats(boolean shortStats) {
+        this.shortStats = shortStats;
     }
 
     public boolean isFullStats() {
         return fullStats;
     }
 
+    public void setFullStats(boolean fullStats) {
+        this.fullStats = fullStats;
+    }
+
     public List<String> getInputFiles() {
         return new ArrayList<>(inputFiles);
+    }
+
+    public void setInputFiles(List<String> inputFiles) {
+        this.inputFiles = new ArrayList<>(inputFiles);
     }
 
     public String getOutputFilename(DataType type) {
